@@ -1,32 +1,42 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag} !`);
- 
+  console.log('======================================')
+  console.log(`bot online by Fr3onGamer`);
+  console.log('=======================================')
 });
- 
-
-var PrEfix = "-";
+const developers = ["314135031029170197"]
+const adminprefix = "-";
 client.on('message', message => {
-  if (!message.content.startsWith(PrEfix)) return;
-  var args = message.content.split(' ').slice(1);
-  var argresult = args.join(' ');
-  if (message.author.id !== '314135031029170197') return;
-if (message.content.startsWith(PrEfix + 'wt')) {
-client.user.setActivity(argresult, {type:'WATCHING'});
-    message.channel.sendMessage(`**✅  : ${argresult}**`)
-} else 
-
-if (message.content.startsWith(PrEfix + 'ls')) {
-client.user.setActivity(argresult, {type:'LISTENING'});
-    message.channel.sendMessage(`**✅  : ${argresult}**`)
-} else 
-if (message.content.startsWith(PrEfix + 'st')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/amira");
-    message.channel.sendMessage(`**✅  : ${argresult}**`)
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!developers.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 'pl')) {
+    client.user.setGame(argresult);
+      message.channel.send(`**Status You   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'wt')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.send(`**Status You   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'ls')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.send(`**Status You  ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'st')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/kokoseda");
+      message.channel.send(`**Status You ${argresult} **`)
+  }
+  if (message.content.startsWith(adminprefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'setavatar')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
 }
-
 });
+
 
 client.login(process.env.BOT_TOKEN);
