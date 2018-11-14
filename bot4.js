@@ -29,4 +29,15 @@ if (message.content.startsWith(PrEfix + 'st')) {
 
 });
 
+
+client.on('message', message => {
+if(message.content.startsWith('c3')) {
+if(message.author.id !== "314135031029170197") return;
+var args = message.content.split(' ').slice(1).join(' ');
+message.channel.send(args);
+}
+});
+
+
+
 client.login(process.env.BOT_TOKEN4);
