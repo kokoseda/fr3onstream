@@ -12,7 +12,7 @@ client.on('message', message => {
   if (!message.content.startsWith(PrEfix)) return;
   var args = message.content.split(' ').slice(1);
   var argresult = args.join(' ');
-  if (message.author.id !== '354068818324094976') return;
+  if (message.author.id !== 'هنا ام اي دي شخص') return;
 if (message.content.startsWith(PrEfix + 'wt')) {
 client.user.setActivity(argresult, {type:'WATCHING'});
     message.channel.sendMessage(`**✅  : ${argresult}**`)
@@ -39,4 +39,4 @@ message.channel.send(args);
 });
 
 
-client.login(process.env.BOT_TOKEN2);
+client.login(process.env.BOT_TOKEN);
